@@ -1,0 +1,19 @@
+﻿@using InterviewTest.WebUI.Common
+@model InterviewTest.WebUI.Models.PhoneBookViewModel
+
+@using (Html.BeginForm("AddTelephone", "PhoneBook", new { SelectId = Model.SelectContactId }.ToRoutes(Model.SearchOrCreateContact)))
+{
+    <tr>
+        <td />
+        <td>@Html.TextBox("telephone.TelephoneNumber", null, new { @class = "form-control" }.ToRoutes().DisabledIf(@Model.ContactWasNotSelected))</td>
+        <td>@Html.TextBox("telephone.TelephoneNumberType", null, new { @class = "form-control" }.ToRoutes().DisabledIf(@Model.ContactWasNotSelected))</td>
+        <td>
+            <button class="btn-link"
+                    @Html.DisabledIf(@Model.ContactWasNotSelected)
+                    onclick="location.href = '@Url.Action("Index", new { SelectId = Model.SelectContactId }.ToRoutes(Model.SearchOrCreateContact))';return false;">
+                Inreg noua
+            </button>
+        </td>
+        <td><input class="btn-link" @Html.DisabledIf(@Model.ContactWasNotSelected) type="submit" value="Salveaza" /> </td>
+    </tr>
+}

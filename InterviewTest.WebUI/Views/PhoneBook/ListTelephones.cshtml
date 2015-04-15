@@ -1,0 +1,21 @@
+﻿@using InterviewTest.WebUI.Common
+@model InterviewTest.WebUI.Models.PhoneBookViewModel
+
+@{ int row = 0; }
+@foreach (var tel in Model.Telephones)
+{
+    row++;
+    <tr>
+        <td class="text-center">@row</td>
+        <td class="text-center">@tel.TelephoneNumber</td>
+        <td class="text-center">@tel.TelephoneNumberType</td>
+        <td>
+            @using (Html.BeginForm("RemoveTelephone", "PhoneBook", new { SelectId = Model.SelectContactId }.ToRoutes(Model.SearchOrCreateContact)))
+            {
+                @Html.Hidden("telephone.TelephoneNumber", tel.TelephoneNumber);
+                @Html.Hidden("telephone.TelephoneNumberType", tel.TelephoneNumberType);
+                <input class="btn-link" type="submit" value="Sterge" />
+            }
+        </td>
+    </tr>
+}

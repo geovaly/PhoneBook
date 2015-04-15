@@ -1,0 +1,46 @@
+﻿@model InterviewTest.WebUI.Models.PhoneBookViewModel
+
+@{
+    ViewBag.Title = "PhoneBook";
+}
+
+<h2>Agenda Telefonica</h2>
+
+<h3>Lista Contacte</h3>
+
+<table class="table table-striped table-condensed table-bordered table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">Nr. crt. </th>
+            <th class="text-center">Nume</th>
+            <th class="text-center">Prenume</th>
+            <th class="text-center">Adresa</th>
+            <th class="text-center">Mentiuni</th>
+        </tr>
+        @Html.Partial("SearchOrCreateContact", Model)
+    </thead>
+    <tbody>
+        @Html.Partial("ListContacts", Model)
+    </tbody>
+
+
+</table>
+
+<h3>Detalii Contact</h3>
+
+<table class="table table-striped table-condensed table-bordered table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">Nr. crt. </th>
+            <th class="text-center">Numar telefon</th>
+            <th class="text-center">Tip numar telefon</th>
+        </tr>
+        @Html.Partial("AddTelephone", Model)
+    </thead>
+    <tbody>
+        @Html.Partial("ListTelephones", Model)
+    </tbody>
+
+</table>
+
+

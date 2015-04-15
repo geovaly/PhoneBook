@@ -1,0 +1,18 @@
+﻿@model InterviewTest.WebUI.Models.PhoneBookViewModel
+
+@using (Html.BeginForm())
+{
+    <tr>
+        <td/>
+        <td>@Html.TextBox("criteria.LastName", Model.SearchOrCreateContact.LastName,new { @class = "form-control" })</td>
+        <td>@Html.TextBox("criteria.FirstName", Model.SearchOrCreateContact.FirstName, new { @class = "form-control" })</td>
+        <td>@Html.TextBox("criteria.Address", Model.SearchOrCreateContact.Address, new { @class = "form-control" })</td>
+        <td>@Html.TextBox("criteria.Comments", Model.SearchOrCreateContact.Comments, new { @class = "form-control" })</td>
+        <td>
+            <button onclick="location.href = '@Url.Action("Index")';return false;" class="btn-link">Inreg noua</button>
+        </td>
+        <td><input type="submit" name="Index:CreateContact" value="Salveaza" class="btn-link" /> </td>
+        <td><input type="submit" name="Index:ListContacts" value="Aplica" class="btn-link" /> </td>
+    </tr>
+}
+
